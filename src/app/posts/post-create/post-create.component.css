@@ -1,0 +1,87 @@
+/* Post Form Styling */
+.post-form {
+  max-width: 600px;
+  margin: auto;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+/* Centered Spinner */
+mat-spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
+
+/* Form Container */
+.form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Full Width Form Fields */
+.full-width {
+  width: 100%;
+}
+
+/* Input Fields */
+mat-form-field {
+  width: 100%;
+}
+
+mat-form-field input,
+mat-form-field textarea {
+  font-size: 16px;
+}
+
+/* Image Upload Section */
+.image-upload {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+}
+
+/* File Upload Button */
+.image-upload button {
+  width: 50%;
+  font-weight: bold;
+}
+
+/* Image Preview */
+.image-preview img {
+  max-width: 120px;
+  max-height: 120px;
+  border-radius: 10px;
+  border: 2px solid #ddd;
+  margin-top: 10px;
+}
+
+/* Save Button */
+button[type="submit"] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  font-size: 16px;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .post-form {
+    padding: 15px;
+  }
+  .image-upload button {
+    width: 100%;
+  }
+}
+input[type="file"] {
+  visibility: hidden;
+}

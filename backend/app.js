@@ -1,49 +1,36 @@
 
-const express = require('express');
+const express = require("express");
 const app = express();
-const bodyParser = require('body-parser')
+const bodyParser = require("body-parser");
+const mongoose = require("mongoose");
+const postsRoutes = require("./routes/posts");
+const Post = require("./models/post");
+const path = require("path"); 
+
+mongoose.connect('mongodb+srv://kyle:123@post.i2qrs.mongodb.net/?retryWrites=true&w=majority&appName=Post')
+.then(() => {
+    console.log('Connected to database!');
+}).catch(() => {
+    console.log('Connection failed!');
+});
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false}));
+app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', "*");
-    res.setHeader("Access-Control-Allow-Headers",
-        "Origin, X-Requested-With, Content-Type, Accept");
-
-    res.setHeader("Access-Control-Allow-Methods", 
-        "GET, POST, PATCH, DELETE, OPTIONS")
-
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader(
+        "Access-Control-Allow-Headers",
+        "Origin, X-Requested-With, Content-Type, Accept"
+    );
+    res.setHeader(
+        "Access-Control-Allow-Methods",
+        "GET, POST, PATCH, PUT, DELETE, OPTIONS"
+    );
     next();
-})
+});
 
-app.post("/api/posts", (req, res, next) =>{
-    const post = req.body;
-    console.log(post);
-    res.status(201).json({
-        message: 'Post added successfully'
-    });
-})
-
-app.get('/api/posts',(req, res, next) => {
-    const posts = 
-        [{
-            id: "abracadabra",
-            title: "first title server",
-            content: "first content"
-        },
-        {
-            id: "abracadabra",
-            title: "second title server",
-            content: "second content"
-        }
-    ];
-    
-
-    res.status(200).json({
-        message: "Posts fetched successfully",
-        posts: posts
-    });
-})
+app.use("/api/posts", postsRoutes);
+app.use("/images", express.static(path.join("backend/images")));
 
 module.exports = app;
