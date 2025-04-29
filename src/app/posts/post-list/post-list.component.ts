@@ -16,7 +16,7 @@ export class PostListComponent implements OnInit, OnDestroy {
     pageSizeOption = [1, 2, 5, 10];  
     posts: Post[] = [];
     private postsSub!: Subscription;
-    Loading: boolean =false;
+    Loading: boolean = false;
     constructor(public postsService: PostsService){
     }
     

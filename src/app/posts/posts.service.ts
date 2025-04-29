@@ -4,6 +4,7 @@ import { HttpClient } from "@angular/common/http";
 import { Post } from "./post.model";
 import { Router } from "@angular/router";
 import { map, catchError } from "rxjs/operators";
+import { HttpHeaders } from "@angular/common/http"; 
 
 @Injectable({ providedIn: 'root' })
 export class PostsService {
@@ -61,17 +62,21 @@ export class PostsService {
             })
         );
     }
-
     addPost(title: string, content: string, image: File) {
         const postData = new FormData();
         postData.append('title', title);
         postData.append('content', content);
         postData.append('image', image, title);
-
+    
+        const token = localStorage.getItem('token'); // or wherever you store it
+    
+        const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    
         this.http
             .post<{ message: string; post: Post }>(
                 'http://localhost:3000/api/posts',
-                postData
+                postData,
+                { headers } // <- correctly structured headers
             )
             .subscribe({
                 next: (responseData) => {
@@ -84,11 +89,12 @@ export class PostsService {
                     this.posts.push(post);
                     this.postsUpdated.next({ posts: [...this.posts], totalPosts: this.posts.length });
                     this.router.navigate(['/']);
+    
                 },
                 error: (err) => console.error("Error in addPost:", err)
             });
     }
-
+    
     updatePost(id: string, title: string, content: string, image: File | string) {
         let postData: FormData | Post;
         
