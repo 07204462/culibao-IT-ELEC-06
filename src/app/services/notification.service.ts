@@ -17,7 +17,6 @@ export class NotificationService {
   public notifications$ = this.notifications.asObservable()
 
   constructor() {
-    // Load notifications from localStorage
     const saved = localStorage.getItem("notifications")
     if (saved) {
       this.notifications.next(JSON.parse(saved))
@@ -34,7 +33,7 @@ export class NotificationService {
     }
 
     const current = this.notifications.value
-    const updated = [notification, ...current].slice(0, 50) // Keep only last 50
+    const updated = [notification, ...current].slice(0, 50)
     this.notifications.next(updated)
     this.saveToStorage(updated)
   }

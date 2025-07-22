@@ -1,9 +1,9 @@
-import { Component, Input, type OnInit } from "@angular/core"
-import { type FormBuilder, type FormGroup, Validators } from "@angular/forms"
-import type { ReactionService } from "../../services/reaction.service"
-import type { AuthService } from "../../authentication/auth.service"
-import type { NotificationService } from "../../services/notification.service"
-import type { Reaction, Comment } from "../../models/reaction.model"
+import { Component, Input, OnInit } from "@angular/core"
+import { FormBuilder, FormGroup, Validators } from "@angular/forms"
+import { ReactionService } from "../../services/reaction.service"
+import { AuthService } from "../../authentication/auth.service"
+import { NotificationService } from "../../services/notification.service"
+import { Reaction, Comment } from "../../models/reaction.model"
 
 @Component({
   selector: "app-post-reactions",
@@ -44,22 +44,18 @@ export class PostReactionsComponent implements OnInit {
   }
 
   loadReactions(): void {
-    // Simulate loading reactions
     this.reactions = []
   }
 
   loadComments(): void {
-    // Simulate loading comments
     this.comments = []
   }
 
   toggleReaction(type: string): void {
     if (this.userReaction === type) {
-      // Remove reaction
       this.userReaction = null
       this.notificationService.addNotification("Reaction removed", "info")
     } else {
-      // Add/change reaction
       this.userReaction = type
       this.notificationService.addNotification(`Reacted with ${type}`, "success")
     }
@@ -96,7 +92,6 @@ export class PostReactionsComponent implements OnInit {
   }
 
   canDeleteComment(comment: Comment): boolean {
-    // User can delete their own comments
     return comment.userId === "current-user"
   }
 }

@@ -28,8 +28,7 @@ import { LoginComponent } from "./authentication/login/login.component"
 import { SignupComponent } from "./authentication/signup/signup.component"
 import { AuthInterceptor } from "./authentication/auth-interceptor"
 
-// New Components
-import { ThemeToggleComponent } from "./components/theme-toggle/theme-toggle.component"
+// Components
 import { NotificationsComponent } from "./components/notifications/notifications.component"
 import { ProfileSettingsComponent } from "./components/profile-settings/profile-settings.component"
 import { PostReactionsComponent } from "./components/post-reactions/post-reactions.component"
@@ -42,7 +41,6 @@ import { PostReactionsComponent } from "./components/post-reactions/post-reactio
     HeaderComponent,
     LoginComponent,
     SignupComponent,
-    ThemeToggleComponent,
     NotificationsComponent,
     ProfileSettingsComponent,
     PostReactionsComponent,

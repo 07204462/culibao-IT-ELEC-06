@@ -23,11 +23,6 @@
         <app-notifications></app-notifications>
       </li>
 
-      <!-- Theme Toggle -->
-      <li>
-        <app-theme-toggle></app-theme-toggle>
-      </li>
-
       <!-- Show login/signup buttons only if not logged in and on login/signup page -->
       <li *ngIf="showAuthLinks">
         <a mat-button routerLink="/login" routerLinkActive="mat-accent">Login</a>

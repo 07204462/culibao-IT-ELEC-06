@@ -80,14 +80,6 @@
           <div class="tab-content">
             <div class="preference-item">
               <mat-slide-toggle 
-                [checked]="isDarkMode$ | async" 
-                (change)="toggleTheme()">
-                Dark Mode
-              </mat-slide-toggle>
-            </div>
-            
-            <div class="preference-item">
-              <mat-slide-toggle 
                 [checked]="emailNotifications" 
                 (change)="toggleEmailNotifications($event)">
                 Email Notifications

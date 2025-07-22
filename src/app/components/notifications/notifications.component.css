@@ -9,11 +9,13 @@
   align-items: center;
   padding: 16px;
   border-bottom: 1px solid #e0e0e0;
+  background-color: inherit;
 }
 
 .notification-header h3 {
   margin: 0;
   font-size: 18px;
+  font-weight: 500;
 }
 
 .notification-list {
@@ -28,7 +30,8 @@
   padding: 12px 16px;
   border-bottom: 1px solid #f0f0f0;
   cursor: pointer;
-  transition: background-color 0.2s;
+  transition: background-color 0.2s ease;
+  position: relative;
 }
 
 .notification-item:hover {
@@ -38,17 +41,34 @@
 .notification-item.unread {
   background-color: #e3f2fd;
   border-left: 4px solid #2196f3;
+  font-weight: 500;
+}
+
+.notification-item.unread::before {
+  content: "";
+  position: absolute;
+  left: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 8px;
+  height: 8px;
+  background-color: #2196f3;
+  border-radius: 50%;
 }
 
 .notification-content {
   display: flex;
   align-items: flex-start;
   flex: 1;
+  padding-left: 16px;
 }
 
 .notification-icon {
   margin-right: 12px;
   margin-top: 2px;
+  font-size: 20px;
+  width: 20px;
+  height: 20px;
 }
 
 .notification-icon.success {
@@ -90,4 +110,10 @@
   width: 48px;
   height: 48px;
   margin-bottom: 8px;
+  opacity: 0.5;
+}
+
+.no-notifications p {
+  margin: 8px 0 0 0;
+  font-size: 14px;
 }

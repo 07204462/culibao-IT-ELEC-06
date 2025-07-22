@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core"
-import type { HttpClient } from "@angular/common/http"
+import { HttpClient } from "@angular/common/http"
 import { type Observable, BehaviorSubject } from "rxjs"
-import type { Reaction, Comment } from "../models/reaction.model"
+import { Reaction, Comment } from "../models/reaction.model"
 
 @Injectable({
   providedIn: "root",

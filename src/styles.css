@@ -7,57 +7,52 @@ body {
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: #fafafa;
+  color: #212121;
 }
 
-/* Dark Theme Styles */
-.dark-theme {
-  background-color: #303030;
-  color: #ffffff;
-}
-
-.dark-theme .mat-toolbar {
-  background-color: #424242 !important;
-}
-
-.dark-theme .mat-card {
-  background-color: #424242;
-  color: #ffffff;
-}
-
-.dark-theme .mat-expansion-panel {
-  background-color: #424242;
-  color: #ffffff;
-}
-
-.dark-theme .mat-form-field-appearance-outline .mat-form-field-outline {
-  color: #ffffff;
-}
-
-.dark-theme .mat-form-field-label {
-  color: #ffffff;
-}
-
-.dark-theme .mat-input-element {
-  color: #ffffff;
-}
-
-.dark-theme .mat-menu-panel {
-  background-color: #424242;
-}
-
-.dark-theme .mat-menu-item {
-  color: #ffffff;
-}
-
-.dark-theme .mat-tab-group {
-  background-color: #424242;
-}
-
-.dark-theme .mat-tab-label {
-  color: #ffffff;
-}
-
-/* Smooth transitions for theme changes */
+/* Smooth transitions */
 * {
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Focus indicators */
+.mat-button:focus,
+.mat-raised-button:focus,
+.mat-icon-button:focus {
+  outline: 2px solid #1976d2;
+  outline-offset: 2px;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  body {
+    background-color: #ffffff;
+    color: #000000;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
 }
