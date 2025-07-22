@@ -1,4 +1,63 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+/* Dark Theme Styles */
+.dark-theme {
+  background-color: #303030;
+  color: #ffffff;
+}
+
+.dark-theme .mat-toolbar {
+  background-color: #424242 !important;
+}
+
+.dark-theme .mat-card {
+  background-color: #424242;
+  color: #ffffff;
+}
+
+.dark-theme .mat-expansion-panel {
+  background-color: #424242;
+  color: #ffffff;
+}
+
+.dark-theme .mat-form-field-appearance-outline .mat-form-field-outline {
+  color: #ffffff;
+}
+
+.dark-theme .mat-form-field-label {
+  color: #ffffff;
+}
+
+.dark-theme .mat-input-element {
+  color: #ffffff;
+}
+
+.dark-theme .mat-menu-panel {
+  background-color: #424242;
+}
+
+.dark-theme .mat-menu-item {
+  color: #ffffff;
+}
+
+.dark-theme .mat-tab-group {
+  background-color: #424242;
+}
+
+.dark-theme .mat-tab-label {
+  color: #ffffff;
+}
+
+/* Smooth transitions for theme changes */
+* {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}

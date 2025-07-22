@@ -1,0 +1,39 @@
+.profile-container {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+}
+
+.profile-card {
+  width: 100%;
+}
+
+.tab-content {
+  padding: 20px 0;
+}
+
+.full-width {
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.preference-item {
+  display: flex;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.preference-item:last-child {
+  border-bottom: none;
+}
+
+button[type="submit"] {
+  margin-top: 16px;
+}
+
+@media (max-width: 768px) {
+  .profile-container {
+    padding: 10px;
+  }
+}

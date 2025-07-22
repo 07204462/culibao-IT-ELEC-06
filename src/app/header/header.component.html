@@ -13,6 +13,21 @@
         <a mat-button routerLink="/create" routerLinkActive="mat-accent">New Post</a>
       </li>
 
+      <!-- Profile Settings -->
+      <li *ngIf="isAuthenticatedAndNotAuthPage">
+        <a mat-button routerLink="/profile" routerLinkActive="mat-accent">Profile</a>
+      </li>
+
+      <!-- Notifications -->
+      <li *ngIf="isAuthenticatedAndNotAuthPage">
+        <app-notifications></app-notifications>
+      </li>
+
+      <!-- Theme Toggle -->
+      <li>
+        <app-theme-toggle></app-theme-toggle>
+      </li>
+
       <!-- Show login/signup buttons only if not logged in and on login/signup page -->
       <li *ngIf="showAuthLinks">
         <a mat-button routerLink="/login" routerLinkActive="mat-accent">Login</a>

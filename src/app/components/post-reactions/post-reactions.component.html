@@ -1,0 +1,55 @@
+<div class="reactions-container">
+  <!-- Reaction Buttons -->
+  <div class="reaction-buttons">
+    <button 
+      *ngFor="let reaction of reactionTypes" 
+      mat-icon-button 
+      [class.active]="userReaction === reaction.type"
+      (click)="toggleReaction(reaction.type)"
+      [matTooltip]="reaction.label">
+      <span class="reaction-emoji">{{ reaction.emoji }}</span>
+      <span class="reaction-count" *ngIf="getReactionCount(reaction.type) > 0">
+        {{ getReactionCount(reaction.type) }}
+      </span>
+    </button>
+  </div>
+
+  <!-- Comments Section -->
+  <div class="comments-section">
+    <button mat-button (click)="toggleComments()" class="comments-toggle">
+      <mat-icon>comment</mat-icon>
+      Comments ({{ comments.length }})
+    </button>
+
+    <div class="comments-list" *ngIf="showComments">
+      <!-- Add Comment Form -->
+      <form [formGroup]="commentForm" (ngSubmit)="addComment()" class="comment-form">
+        <mat-form-field class="full-width">
+          <textarea 
+            matInput 
+            formControlName="content" 
+            placeholder="Write a comment..."
+            rows="2">
+          </textarea>
+        </mat-form-field>
+        <button mat-raised-button color="primary" type="submit" [disabled]="commentForm.invalid">
+          Post Comment
+        </button>
+      </form>
+
+      <!-- Comments List -->
+      <div class="comment-item" *ngFor="let comment of comments">
+        <div class="comment-header">
+          <strong>{{ comment.userEmail }}</strong>
+          <small>{{ comment.createdAt | date:'short' }}</small>
+        </div>
+        <p class="comment-content">{{ comment.content }}</p>
+        <div class="comment-actions">
+          <button mat-icon-button (click)="deleteComment(comment.id!)" *ngIf="canDeleteComment(comment)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
