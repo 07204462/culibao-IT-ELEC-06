@@ -1,0 +1,153 @@
+.profile-container {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+}
+
+.profile-card {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.profile-card .mat-card-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 24px;
+}
+
+.profile-card .mat-card-title {
+  font-size: 24px;
+  font-weight: 500;
+  margin: 0;
+}
+
+.tab-content {
+  padding: 24px;
+}
+
+.full-width {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.preference-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 0;
+  border-bottom: 1px solid #e0e0e0;
+  transition: all 0.2s ease;
+}
+
+.preference-item:last-child {
+  border-bottom: none;
+}
+
+.preference-item:hover {
+  background-color: rgba(0, 0, 0, 0.02);
+  padding-left: 8px;
+  padding-right: 8px;
+  border-radius: 8px;
+}
+
+.preference-item span {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+button[type="submit"] {
+  margin-top: 20px;
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-weight: 500;
+  text-transform: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+}
+
+button[type="submit"]:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+button[type="submit"]:disabled {
+  transform: none;
+  box-shadow: none;
+}
+
+/* Form field styling */
+.mat-form-field {
+  margin-bottom: 16px;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-outline {
+  border-radius: 8px;
+}
+
+/* Tab styling */
+.mat-tab-group {
+  border-radius: 0 0 12px 12px;
+}
+
+.mat-tab-header {
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.mat-tab-label {
+  font-weight: 500;
+  text-transform: none;
+  font-size: 14px;
+}
+
+/* Loading state */
+button[type="submit"] mat-icon {
+  animation: spin 1s linear infinite;
+  margin-right: 8px;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .profile-container {
+    padding: 10px;
+    margin: 10px;
+  }
+
+  .tab-content {
+    padding: 16px;
+  }
+
+  .profile-card .mat-card-header {
+    padding: 16px;
+  }
+
+  .profile-card .mat-card-title {
+    font-size: 20px;
+  }
+}
+
+/* Success/Error states */
+.mat-form-field.mat-form-field-invalid .mat-form-field-outline-thick {
+  color: #f44336;
+}
+
+.mat-form-field.ng-valid.ng-touched .mat-form-field-outline-thick {
+  color: #4caf50;
+}
+
+/* Focus states */
+.mat-slide-toggle:focus {
+  outline: 2px solid #1976d2;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
